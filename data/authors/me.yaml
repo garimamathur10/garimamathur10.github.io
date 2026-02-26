@@ -12,9 +12,9 @@ postnominals: []
 status:
   icon: "💻"
 
-role: Software Engineer – Distributed Systems
+role: Software Engineer 
 
-email: your-email@example.com
+email: mathurgarima2000@gmail.com
 
 bio: |
   Software Engineer with 3+ years of experience designing and operating secure, high-availability distributed systems at scale.
@@ -27,12 +27,12 @@ affiliations:
 
 links:
   - icon: at-symbol
-    url: mailto:your-email@example.com
+    url: mailto: mathurgarima2000@gmail.com
     label: E-mail Me
   - icon: brands/github
-    url: https://github.com/yourgithub
+    url: https://github.com/garimamathur10
   - icon: brands/linkedin
-    url: https://linkedin.com/in/yourlinkedin
+    url: www.linkedin.com/in/garimammathur
 
 interests:
   - Distributed Systems
@@ -65,7 +65,7 @@ experience:
     end: 2025-08-01
     summary: |
       Designed distributed ingestion pipelines integrating REST APIs and Supabase, improving throughput by 30%.
-      Built ML-driven customer profiling workflows improving dataset quality by 60%.
+      Built ML-driven customer profiling workflows using Kmeans clustering, improving dataset quality by 60%.
       Implemented schema validation and data quality checks across event systems.
 
   - role: Senior Software Engineer
