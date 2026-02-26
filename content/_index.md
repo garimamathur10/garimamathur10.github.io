@@ -28,10 +28,10 @@ sections:
         delete_speed: 40
         pause_time: 2500
       cta_buttons:
-        - text: View Projects
+        - text: View My Work
           url: "#projects"
           icon: arrow-down
-        - text: Contact Me
+        - text: Get In Touch
           url: "#contact"
           icon: envelope
     design:
@@ -49,7 +49,7 @@ sections:
     id: projects
     content:
       title: "Featured Projects"
-      subtitle: "Distributed systems and ML-driven platforms"
+      subtitle: "A selection of my distributed systems and backend work"
       count: 0
       filters:
         folders:
@@ -61,7 +61,7 @@ sections:
           tag: Distributed
         - name: Backend
           tag: Backend
-        - name: ML Systems
+        - name: ML Platforms
           tag: ML
       default_button_index: 0
     design:
@@ -89,17 +89,27 @@ sections:
               icon: devicon/python
             - name: SQL
               icon: devicon/postgresql
-        - name: Systems & Backend
+        - name: Frontend
           items:
-            - name: Microservices
-              icon: devicon/docker
-            - name: Distributed Systems
-              icon: devicon/kubernetes
             - name: REST APIs
               icon: devicon/nodejs
+            - name: Microservices
+              icon: devicon/docker
             - name: Linux
               icon: devicon/linux
-        - name: Cloud & DevOps
+            - name: System Design
+              icon: devicon/kubernetes
+        - name: Backend
+          items:
+            - name: Distributed Systems
+              icon: devicon/kubernetes
+            - name: Concurrency
+              icon: devicon/java
+            - name: Data Pipelines
+              icon: devicon/apachekafka
+            - name: Monitoring
+              icon: devicon/prometheus
+        - name: DevOps
           items:
             - name: GCP
               icon: devicon/googlecloud
@@ -107,18 +117,8 @@ sections:
               icon: devicon/azure
             - name: CI/CD
               icon: brands/github
-            - name: Monitoring
+            - name: Logging
               icon: devicon/prometheus
-        - name: ML & Data
-          items:
-            - name: PyTorch
-              icon: devicon/pytorch
-            - name: TensorFlow
-              icon: devicon/tensorflow
-            - name: BERT
-              icon: devicon/python
-            - name: Data Pipelines
-              icon: devicon/apachekafka
     design:
       style: grid
       show_levels: false
@@ -137,16 +137,20 @@ sections:
       items:
         - title: Data Augmentation Intern
           company: Bevalty
+          company_url: ''
+          company_logo: ''
           location: San Francisco, CA
           date_start: '2025-06-01'
           date_end: '2025-08-01'
           description: |2-
             * Designed distributed ingestion pipelines improving throughput by 30%
-            * Built ML-driven profiling workflows improving dataset quality by 60%
+            * Built ML-driven customer profiling workflows improving dataset quality by 60%
             * Implemented schema validation across event systems
 
         - title: Senior Software Engineer
           company: Accolite Digital
+          company_url: ''
+          company_logo: ''
           location: Gurugram, India
           date_start: '2023-11-01'
           date_end: '2024-07-01'
@@ -157,6 +161,8 @@ sections:
 
         - title: Software Engineer
           company: Accolite Digital
+          company_url: ''
+          company_logo: ''
           location: Gurugram, India
           date_start: '2021-09-01'
           date_end: '2023-10-01'
@@ -173,16 +179,37 @@ sections:
       spacing:
         padding: ["4rem", "0", "4rem", "0"]
 
+  - block: collection
+    id: blog
+    content:
+      title: Recent Posts
+      subtitle: 'Thoughts on distributed systems, backend engineering, and scalability'
+      text: ''
+      filters:
+        folders:
+          - blog
+        exclude_featured: false
+      count: 3
+      order: desc
+    design:
+      view: card
+      columns: 3
+      background:
+        color:
+          light: "#f5f5f5"
+          dark: "#08080c"
+      spacing:
+        padding: ["4rem", "0", "4rem", "0"]
+
   - block: contact-info
     id: contact
     content:
       title: Get In Touch
-      subtitle: "Open to backend, platform, and distributed systems roles"
+      subtitle: "Let's build scalable systems together"
       text: |-
         I'm always interested in discussing opportunities in backend platforms,
         distributed systems, and cloud-native engineering.
-
-      email: your-email@example.com
+      email: mathurgarima2000@gmail.com
       autolink: true
     design:
       columns: '1'
@@ -197,12 +224,9 @@ sections:
     content:
       title: "Open to Opportunities"
       text: |-
-        I'm currently exploring roles in:
+        I'm currently looking for **backend engineering** or **distributed systems** roles.
 
-        **Backend Engineering**
-        **Distributed Systems**
-        **Platform Infrastructure**
-
+        Let's connect and discuss how I can help your team.
       button:
         text: 'Download Resume'
         url: uploads/resume.pdf
