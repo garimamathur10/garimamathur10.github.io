@@ -1,100 +1,132 @@
 schema: hugoblox/author/v1
 slug: me
 is_owner: true
+
 name:
-  display: Alex Johnson
-  given: Alex
-  family: Johnson
+  display: Garima Mathur
+  given: Garima
+  family: Mathur
+
 postnominals: []
+
 status:
-  icon: "💻"  # Emoji shown on avatar badge: 💻 developer, 🎨 designer, 🚀 startup, 🔬 researcher, 🎓 student
-role: Full-Stack Developer
-email: alex@example.com
+  icon: "💻"
+
+role: Software Engineer – Distributed Systems
+
+email: your-email@example.com
+
 bio: |
-  Full-stack developer with 5+ years of experience building scalable web applications.
-  Passionate about modern JavaScript, cloud architecture, and creating delightful user experiences.
+  Software Engineer with 3+ years of experience designing and operating secure, high-availability distributed systems at scale.
+  Experienced in building low-latency microservices supporting millions of users, authorization architecture,
+  database performance optimization, and production incident resolution in cloud-native environments.
 
 affiliations:
-  - name: Tech Corp
-    url: https://techcorp.example.com
+  - name: Accolite Digital
+    url: https://www.accolite.com
 
 links:
   - icon: at-symbol
-    url: mailto:alex@example.com
+    url: mailto:your-email@example.com
     label: E-mail Me
   - icon: brands/github
-    url: https://github.com/alexjohnson
+    url: https://github.com/yourgithub
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/alexjohnson/
-  - icon: brands/x
-    url: https://x.com/alexjohnson
+    url: https://linkedin.com/in/yourlinkedin
 
 interests:
-  - Web Development
-  - Cloud Architecture
-  - Open Source
-  - Developer Experience
+  - Distributed Systems
+  - Backend Engineering
+  - Cloud Platforms
+  - System Design
+  - Machine Learning Infrastructure
 
 education:
-  - degree: B.S. Computer Science
-    institution: State University
-    start: 2015-09-01
-    end: 2019-05-31
+  - degree: Master of Science in Business Analytics
+    institution: University of California, Davis
+    start: 2024-08-01
+    end: 2025-08-01
     summary: |
-      Focus on software engineering and distributed systems.
-      Senior project on distributed caching systems.
-    button:
-      text: View Project
-      url: https://github.com/alexjohnson/senior-project
-      icon: brands/github
+      Focus on Machine Learning, Data Systems, and Analytics.
+      GPA: 3.67/4
+
+  - degree: Bachelor of Engineering in Electronics and Computer
+    institution: MBM Engineering College, Jodhpur
+    start: 2017-08-01
+    end: 2021-08-01
+    summary: |
+      Coursework in Operating Systems, Data Structures, and Database Systems.
+      GPA: 8.34/10
 
 experience:
+  - role: Data Augmentation Intern
+    org: Bevalty
+    start: 2025-06-01
+    end: 2025-08-01
+    summary: |
+      Designed distributed ingestion pipelines integrating REST APIs and Supabase, improving throughput by 30%.
+      Built ML-driven customer profiling workflows improving dataset quality by 60%.
+      Implemented schema validation and data quality checks across event systems.
+
   - role: Senior Software Engineer
-    org: Tech Corp
-    start: 2023-01-01
+    org: Accolite Digital
+    start: 2023-11-01
+    end: 2024-07-01
     summary: |
-      Lead development of microservices architecture serving 1M+ users.
-      Improved API response time by 40% through optimization.
-      Mentored team of 5 junior developers.
-  - role: Full-Stack Developer
-    org: Startup Inc
-    start: 2021-06-01
-    end: 2022-12-31
+      Implemented secure authorization across 40+ backend modules.
+      Improved MariaDB-backed user services supporting 2.5M+ users.
+      Delivered production-ready features through full SDLC collaboration.
+
+  - role: Software Engineer
+    org: Accolite Digital
+    start: 2021-09-01
+    end: 2023-10-01
     summary: |
-      Built and deployed 3 production applications from scratch.
-      Implemented CI/CD pipeline reducing deployment time by 60%.
-      Led migration from monolith to microservices architecture.
-  - role: Junior Developer
-    org: Web Agency
-    start: 2020-01-01
-    end: 2021-05-31
-    summary: |
-      Developed client websites using React and modern web technologies.
-      Participated in code reviews and agile ceremonies.
+      Contributed to Mesa 3D upgrade improving rendering performance on Linux.
+      Stabilized data pipelines impacting 3M+ users.
+      Built unit and integration testing frameworks to reduce production risk.
 
 skills:
-  - name: Development
+  - name: Programming
     items:
-      - label: TypeScript
+      - label: Java
         level: 5
-      - label: React
-        level: 5
-      - label: Node.js
+      - label: C++
         level: 5
       - label: Python
         level: 4
-  - name: DevOps
-    items:
-      - label: Docker
+      - label: SQL
         level: 4
-      - label: AWS
+
+  - name: Systems & Backend
+    items:
+      - label: Distributed Systems
+        level: 5
+      - label: Microservices
+        level: 5
+      - label: Concurrency
+        level: 4
+      - label: System Design
+        level: 4
+
+  - name: Cloud & Operations
+    items:
+      - label: GCP
+        level: 4
+      - label: Azure
         level: 4
       - label: CI/CD
-        level: 5
+        level: 4
+      - label: Monitoring
+        level: 4
 
 languages:
   - name: English
     level: 5
-    label: Native
+    label: Professional
 
-awards: []
+awards:
+  - title: GEN AI Hackathon – Top 9 Finalist
+    date: 2023
+  - title: Client Appreciation Award
+    date: 2021
