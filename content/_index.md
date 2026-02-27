@@ -96,7 +96,7 @@ sections:
             - name: Distributed Systems
               icon: devicon/kubernetes
             - name: System Design
-              icon: devicon/systemdesign
+              icon: devicon/system
         - name: Tools
           items:
             - name: Linux
