@@ -49,7 +49,7 @@ sections:
     id: projects
     content:
       title: "Featured Projects"
-      subtitle: "A selection of my distributed systems and backend work"
+      subtitle: "A selection of my Machine learning Systems and Backend work"
       count: 0
       filters:
         folders:
@@ -57,8 +57,6 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Distributed Systems
-          tag: Distributed
         - name: Backend
           tag: Backend
         - name: ML Platforms
