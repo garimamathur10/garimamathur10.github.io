@@ -21,7 +21,7 @@ tech_stack:
   - Matplotlib
 links:
   - type: github
-    url: https://github.com/yourrepo/ace-the-space
+    url: https://github.com/garimamathur10/WageWizard
     label: Code
 featured: true
 status: "Prototype"
