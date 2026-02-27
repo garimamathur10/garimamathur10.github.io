@@ -8,6 +8,7 @@ tags:
   - Career Tech
   - Regression
   - Decision Intelligence
+  - ML 
 authors:
   - me
 featured: true
