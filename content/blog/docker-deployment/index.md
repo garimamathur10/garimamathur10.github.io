@@ -5,13 +5,16 @@ summary: "A practical roadmap for beginners to build technical, analytical, and 
 tags:
   - Data Analytics
   - Career Growth
+  - Backend developement
   - Python
   - SQL
   - Visualization
-  - Professional Development
+
 authors:
   - me
-featured: false
+    
+featured: true
+
 
 content: |-
   In an era where technology and business advancement are rapidly evolving, new opportunities are continually emerging in the world of data. For those just starting their journey in data analysis, this dynamic landscape offers a wealth of opportunities to harness the power of data and drive impactful decisions.
