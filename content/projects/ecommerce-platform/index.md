@@ -19,16 +19,19 @@ tech_stack:
   - Seaborn
   - Multithreading
 
+
 links:
   - type: github
-    url: https://github.com/yourrepo/schedwiz
+    url: [https://github.com/garimamathur10/SchedWiz]
     label: Code
-
+  - type: live
+    url: [https://github.com/garimamathur10/SchedWiz/blob/main/Demo_SchedWiz_BDA_Project.mp4]
+    label: Demo
 featured: true
 status: "Live"
-role: "Developer"
+role: "ML Developer"
 duration: "3 months"
-team_size: 1
+team_size: 5
 
 highlights:
   - "Served 32k+ students with adaptive schedules"
