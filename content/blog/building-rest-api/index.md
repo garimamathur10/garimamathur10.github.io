@@ -34,7 +34,7 @@ tech_stack:
 
 links:
   - type: github
-    url: "https://github.com/yourrepo/schedwiz"
+    url: https://github.com/garimamathur10/SchedWiz
     label: Code
 
 highlights:
