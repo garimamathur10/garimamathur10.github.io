@@ -207,7 +207,6 @@ sections:
       text: |-
         I'm always interested in discussing opportunities in backend platforms,
         distributed systems, and cloud-native engineering.
-      email: mathurgarima2000@gmail.com
       autolink: true
     design:
       columns: '1'
