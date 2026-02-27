@@ -1,455 +1,147 @@
 ---
-title: "Building a Production-Ready REST API with Node.js and Express"
-date: 2024-12-10
-summary: "A comprehensive guide to building scalable, secure REST APIs with proper error handling, validation, and documentation"
+title: "Building SchedWiz: A Big Data-Driven Adaptive Study Scheduling System"
+date: 2025-06-01
+summary: "How I built SchedWiz in my Big Data class using PySpark + ML to turn large-scale learning behavior data into adaptive, real-time study schedules"
 tags:
-  - Node.js
-  - Express
-  - REST API
-  - Backend
-  - Tutorial
+  - Big Data
+  - PySpark
+  - Machine Learning
+  - Predictive Analytics
+  - Causal Inference
+  - Education Tech
 authors:
   - me
 featured: true
+
+project:
+  name: "SchedWiz – AI Study Scheduler"
+  role: "ML Developer"
+  duration: "3 months"
+  team_size: 5
+
+tech_stack:
+  - Python
+  - PySpark
+  - PyTorch
+  - TensorFlow
+  - Streamlit
+  - Pandas
+  - Seaborn
+  - Multithreading
+
+links:
+  - type: github
+    url: https://github.com/yourrepo/schedwiz
+    label: Code
+
+highlights:
+  - "Built as part of a Big Data coursework project using the OULAD dataset (32k+ students)"
+  - "73.3% test accuracy for student outcome prediction (Fail/Pass/Distinction)"
+  - "Generated personalized, adaptive schedules in real-time via multithreaded orchestration"
+  - "Measured 12.6% causal lift in outcomes for high early engagement using PSM + DiD"
+
+content: |-
+  Building intelligent systems is not only about training models — it’s about using data to drive decisions at scale. SchedWiz was built as part of my Big Data coursework, where the goal was to translate large-scale learning behavior data into actionable study schedules.
+
+  ## Overview
+
+  Students often struggle with static schedules, inconsistent habits, and difficulty prioritizing tasks. Traditional study planning rarely adapts to changing performance and upcoming exam timelines. SchedWiz addresses this by converting academic performance and engagement signals into dynamic, personalized study plans.
+
+  Students enter key details (scores, exam dates, subject difficulty, available hours) through a Streamlit interface. The system predicts academic outcomes and generates an adaptive schedule that prioritizes weak subjects and urgent exams, updating as inputs change.
+
+  ## Big Data Class Connection
+
+  The project was designed around Big Data principles:
+  - **Large-scale processing** using PySpark for joins, aggregations, feature engineering, and scalable preprocessing.
+  - **Heterogeneous data integration** combining demographics, assessments, and behavioral engagement signals.
+  - **Decision-making at scale** by translating model outputs into scheduling actions.
+  - **Evaluation beyond accuracy** by measuring causal impact of early engagement.
+
+  ## Dataset & Data Strategy
+
+  **Dataset:** Open University Learning Analytics Dataset (OULAD)
+  - 32,000+ students
+  - Student demographics, assessment results, course structure, VLE engagement logs
+
+  **Outcome Variable:**
+  - Final result: Fail / Pass / Distinction (multi-class classification)
+
+  **Key Explanatory Features (examples):**
+  - Performance: avg_score, last_score, weighted_score, score_trend
+  - Engagement: total_clicks, active_days, click_variability
+  - Behavioral windows: clicks_first_14_days, clicks_last_7_days
+  - Demographics/context: age_band, highest_education, imd_band
+
+  ## Analytics Framework
+
+  ### Exploratory Analytics
+  - Distribution of scores across demographics and modules
+  - Engagement patterns over time (weekly/cumulative)
+  - Correlation analysis and outlier detection
+  - Tools: Pandas + PySpark aggregations, plots via Seaborn
+
+  ### Predictive Analytics
+  - **MLP (PyTorch/TensorFlow)** trained on engineered features
+  - **Spark ML pipelines** (e.g., Gradient Boosted Trees) for tabular baselines
+  - Evaluation: accuracy, precision/recall, class-wise F1
+
+  ### Causal Analytics
+  - Propensity Score Matching (PSM) + Difference-in-Differences (DiD)
+  - Used to estimate the effect of **early engagement** on outcomes
+
+  ## System Architecture
+
+┌─────────────┐ ┌──────────────┐ ┌─────────────┐
+│ Streamlit UI│────▶│ ML Pipeline │────▶│ Risk Class │
+└─────────────┘ │ (PySpark) │ └─────────────┘
+└──────┬───────┘
+│
+┌──────▼───────┐
+│ Scheduler │
+│ Multithreaded│
+└──────┬───────┘
+│
+┌──────▼───────┐
+│ Study Plan │
+└──────────────┘
+
+
+- **Learner Agent:** predicts outcome category (Fail/Pass/Distinction)
+- **Scheduler Agent:** allocates daily study hours based on predicted risk, exam proximity, and available hours
+- **Feedback Loop:** schedule updates as new progress/inputs are provided
+
+## Challenges & Solutions
+
+### Challenge 1: Static Study Planning
+**Problem:** Traditional schedules do not adapt to changing performance or deadlines  
+**Solution:** Built ML-driven prioritization and dynamic hour allocation based on predicted risk + exam proximity
+
+### Challenge 2: Measuring True Impact
+**Problem:** Accuracy alone doesn’t prove schedules improve outcomes  
+**Solution:** Added causal evaluation using PSM + DiD to estimate engagement-driven improvements
+
+### Challenge 3: Responsiveness at Scale
+**Problem:** Scheduling logic must remain fast as data and users scale  
+**Solution:** Implemented concurrency-aware orchestration and cache-aware scheduling logic
+
+## Results
+
+- **Prediction Accuracy:** 73.3% test accuracy (74.98% training accuracy)
+- **Scale:** modeled 32,000+ students (OULAD)
+- **Impact:** 12.6% estimated lift in outcomes for high early engagement
+- **Reliability:** added schema validation and data quality checks to reduce noisy schedule outputs
+
+## Future Improvements
+
+- Improve “Distinction” prediction (address class imbalance)
+- Add real-time schedule reshuffling from continuous signals (engagement + assessments)
+- LMS integration for real-time data ingestion
+- Progress dashboard + personalized recommendations
+
+## Lessons Learned
+
+1. Big Data value comes from combining heterogeneous signals into actionable decisions
+2. Causal evaluation increases confidence beyond predictive accuracy
+3. Concurrency and orchestration matter for real-time user-facing planning systems
+4. Reliability (validation, data quality) is essential before scaling to production
 ---
-
-Building a REST API seems straightforward until you need to handle authentication, validation, error handling, and documentation. This guide covers best practices for production-ready APIs.
-
-## Table of Contents
-
-1. [Project Setup](#project-setup)
-2. [Folder Structure](#folder-structure)
-3. [Database Integration](#database)
-4. [Authentication & Authorization](#auth)
-5. [Error Handling](#errors)
-6. [Validation](#validation)
-7. [API Documentation](#docs)
-8. [Testing](#testing)
-
-## Project Setup {#project-setup}
-
-Start with a solid foundation:
-
-```bash
-mkdir my-api && cd my-api
-npm init -y
-npm install express dotenv cors helmet compression
-npm install -D typescript @types/node @types/express ts-node-dev
-```
-
-Create `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "lib": ["ES2020"],
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
-}
-```
-
-## Folder Structure {#folder-structure}
-
-Organize your code for maintainability:
-
-```
-src/
-├── config/         # Configuration files
-├── controllers/    # Route controllers
-├── middleware/     # Custom middleware
-├── models/         # Database models
-├── routes/         # API routes
-├── services/       # Business logic
-├── utils/          # Helper functions
-├── validators/     # Input validation
-└── app.ts          # App setup
-```
-
-## Database Integration {#database}
-
-Using Prisma for type-safe database access:
-
-```typescript
-// prisma/schema.prisma
-model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  name      String
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-```
-
-```typescript
-// src/config/database.ts
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient({
-  log: process.env.NODE_ENV === 'development' ? ['query'] : []
-})
-
-export default prisma
-```
-
-## Authentication & Authorization {#auth}
-
-Implement JWT-based authentication:
-
-```typescript
-// src/middleware/auth.ts
-import jwt from 'jsonwebtoken'
-import { Request, Response, NextFunction } from 'express'
-
-interface JWTPayload {
-  userId: string
-  email: string
-}
-
-export const authenticate = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const token = req.headers.authorization?.split(' ')[1]
-    
-    if (!token) {
-      return res.status(401).json({ error: 'Authentication required' })
-    }
-
-    const payload = jwt.verify(
-      token,
-      process.env.JWT_SECRET!
-    ) as JWTPayload
-
-    req.user = payload
-    next()
-  } catch (error) {
-    res.status(401).json({ error: 'Invalid or expired token' })
-  }
-}
-```
-
-## Error Handling {#errors}
-
-Centralized error handling:
-
-```typescript
-// src/middleware/errorHandler.ts
-import { Request, Response, NextFunction } from 'express'
-
-class AppError extends Error {
-  statusCode: number
-  isOperational: boolean
-
-  constructor(message: string, statusCode: number) {
-    super(message)
-    this.statusCode = statusCode
-    this.isOperational = true
-    Error.captureStackTrace(this, this.constructor)
-  }
-}
-
-export const errorHandler = (
-  err: Error,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  if (err instanceof AppError) {
-    return res.status(err.statusCode).json({
-      status: 'error',
-      message: err.message
-    })
-  }
-
-  // Log unexpected errors
-  console.error('Unexpected error:', err)
-
-  res.status(500).json({
-    status: 'error',
-    message: 'Internal server error'
-  })
-}
-
-export { AppError }
-```
-
-## Validation {#validation}
-
-Use Zod for runtime validation:
-
-```typescript
-// src/validators/userValidator.ts
-import { z } from 'zod'
-
-export const createUserSchema = z.object({
-  body: z.object({
-    email: z.string().email('Invalid email address'),
-    name: z.string().min(2, 'Name must be at least 2 characters'),
-    password: z.string().min(8, 'Password must be at least 8 characters')
-  })
-})
-
-export const validate = (schema: any) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      await schema.parseAsync({
-        body: req.body,
-        query: req.query,
-        params: req.params
-      })
-      next()
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({
-          status: 'error',
-          errors: error.errors
-        })
-      }
-      next(error)
-    }
-  }
-}
-```
-
-## API Documentation {#docs}
-
-Auto-generate docs with Swagger:
-
-```typescript
-// src/config/swagger.ts
-import swaggerJsdoc from 'swagger-jsdoc'
-
-const options = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'My API',
-      version: '1.0.0',
-      description: 'API documentation'
-    },
-    servers: [
-      {
-        url: 'http://localhost:3000',
-        description: 'Development server'
-      }
-    ]
-  },
-  apis: ['./src/routes/*.ts']
-}
-
-export const swaggerSpec = swaggerJsdoc(options)
-```
-
-Document endpoints in route files:
-
-```typescript
-/**
- * @openapi
- * /api/users:
- *   post:
- *     summary: Create a new user
- *     tags: [Users]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *               name:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       201:
- *         description: User created successfully
- */
-router.post('/users', validate(createUserSchema), createUser)
-```
-
-## Testing {#testing}
-
-Write tests with Jest and Supertest:
-
-```typescript
-// tests/users.test.ts
-import request from 'supertest'
-import app from '../src/app'
-import prisma from '../src/config/database'
-
-describe('User API', () => {
-  beforeEach(async () => {
-    await prisma.user.deleteMany()
-  })
-
-  afterAll(async () => {
-    await prisma.$disconnect()
-  })
-
-  describe('POST /api/users', () => {
-    it('should create a new user', async () => {
-      const res = await request(app)
-        .post('/api/users')
-        .send({
-          email: 'test@example.com',
-          name: 'Test User',
-          password: 'password123'
-        })
-        .expect(201)
-
-      expect(res.body).toHaveProperty('id')
-      expect(res.body.email).toBe('test@example.com')
-    })
-
-    it('should return 400 for invalid email', async () => {
-      const res = await request(app)
-        .post('/api/users')
-        .send({
-          email: 'invalid-email',
-          name: 'Test User',
-          password: 'password123'
-        })
-        .expect(400)
-
-      expect(res.body).toHaveProperty('errors')
-    })
-  })
-})
-```
-
-## Security Best Practices
-
-1. **Rate Limiting**
-   ```typescript
-   import rateLimit from 'express-rate-limit'
-   
-   const limiter = rateLimit({
-     windowMs: 15 * 60 * 1000, // 15 minutes
-     max: 100 // limit each IP to 100 requests per windowMs
-   })
-   
-   app.use('/api/', limiter)
-   ```
-
-2. **Helmet** for security headers
-   ```typescript
-   import helmet from 'helmet'
-   app.use(helmet())
-   ```
-
-3. **CORS** configuration
-   ```typescript
-   import cors from 'cors'
-   app.use(cors({
-     origin: process.env.ALLOWED_ORIGINS?.split(','),
-     credentials: true
-   }))
-   ```
-
-4. **Input Sanitization**
-   ```typescript
-   import mongoSanitize from 'express-mongo-sanitize'
-   app.use(mongoSanitize())
-   ```
-
-## Performance Optimization
-
-### 1. Response Compression
-```typescript
-import compression from 'compression'
-app.use(compression())
-```
-
-### 2. Caching
-```typescript
-import Redis from 'ioredis'
-const redis = new Redis(process.env.REDIS_URL)
-
-async function getCachedData(key: string) {
-  const cached = await redis.get(key)
-  if (cached) return JSON.parse(cached)
-  
-  const data = await fetchFromDatabase()
-  await redis.setex(key, 3600, JSON.stringify(data))
-  return data
-}
-```
-
-### 3. Database Query Optimization
-```typescript
-// Use pagination
-const users = await prisma.user.findMany({
-  skip: (page - 1) * limit,
-  take: limit,
-  select: {
-    id: true,
-    email: true,
-    name: true
-    // Don't select sensitive fields like password
-  }
-})
-
-// Use indexes
-@@index([email])
-@@index([createdAt])
-```
-
-## Deployment Checklist
-
-- [ ] Environment variables configured
-- [ ] Database migrations run
-- [ ] SSL/TLS certificates installed
-- [ ] Rate limiting enabled
-- [ ] Logging configured (Winston, Morgan)
-- [ ] Error tracking (Sentry)
-- [ ] Health check endpoint
-- [ ] API documentation deployed
-- [ ] Load testing completed
-- [ ] Backup strategy implemented
-
-## Monitoring
-
-```typescript
-// Health check endpoint
-app.get('/health', async (req, res) => {
-  try {
-    await prisma.$queryRaw`SELECT 1`
-    res.status(200).json({ status: 'healthy', timestamp: new Date() })
-  } catch (error) {
-    res.status(503).json({ status: 'unhealthy', error: error.message })
-  }
-})
-```
-
-## Conclusion
-
-Building production-ready APIs requires attention to:
-- **Structure**: Organized code is maintainable code
-- **Security**: Authentication, validation, and rate limiting
-- **Errors**: Proper error handling and logging
-- **Testing**: Comprehensive test coverage
-- **Documentation**: Clear API docs for consumers
-- **Performance**: Caching and optimization
-
-The complete example code is available on [GitHub](https://github.com/alexjohnson/rest-api-guide).
-
-## Resources
-
-- [Express Best Practices](https://expressjs.com/en/advanced/best-practice-performance.html)
-- [Node.js Security Checklist](https://github.com/goldbergyoni/nodebestpractices#6-security-best-practices)
-- [Prisma Documentation](https://www.prisma.io/docs)
-
----
-
-Questions? Leave a comment below or reach out on [Twitter](https://twitter.com/alexjohnson)!
