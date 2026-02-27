@@ -85,8 +85,8 @@ sections:
               icon: devicon/cplusplus
             - name: Python
               icon: devicon/python
-            - name: SQL
-              icon: devicon/postgresql
+            - name: MySQL
+              icon: devicon/mysql
         - name: Backend 
           items:
             - name: REST APIs
