@@ -5,7 +5,7 @@ summary: "A practical roadmap for beginners to build technical, analytical, and 
 tags:
   - Data Analytics
   - Career Growth
-  - Backend developement
+  - ML
   - Python
   - SQL
   - Visualization
