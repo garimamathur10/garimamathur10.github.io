@@ -26,7 +26,7 @@ links:
 featured: true
 status: "Prototype"
 role: "Developer"
-duration: "6 weeks"
+duration: "9 weeks"
 team_size: 1
 highlights:
   - "Matched 2,000 resumes to 24,542 job postings using Sentence-BERT cosine similarity"
