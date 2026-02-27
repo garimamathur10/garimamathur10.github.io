@@ -87,26 +87,26 @@ sections:
               icon: devicon/python
             - name: SQL
               icon: devicon/postgresql
-        - name: Frontend
+        - name: Backend 
           items:
             - name: REST APIs
               icon: devicon/nodejs
             - name: Microservices
               icon: devicon/docker
-            - name: Linux
-              icon: devicon/linux
-            - name: System Design
-              icon: devicon/kubernetes
-        - name: Backend
-          items:
             - name: Distributed Systems
               icon: devicon/kubernetes
-            - name: Concurrency
-              icon: devicon/java
-            - name: Data Pipelines
-              icon: devicon/apachekafka
-            - name: Monitoring
-              icon: devicon/prometheus
+            - name: System Design
+              icon: devicon/kubernetes
+        - name: Tools
+          items:
+            - name: Linux
+              icon: devicon/linux
+            - name: Git
+              icon: devicon/git
+            - name: Asana
+              icon: devicon/asana
+            - name: Jira
+              icon: devicon/jira
         - name: DevOps
           items:
             - name: GCP
