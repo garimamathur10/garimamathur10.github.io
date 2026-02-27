@@ -27,7 +27,7 @@ featured: true
 status: "Prototype"
 role: "Developer"
 duration: "9 weeks"
-team_size: 1
+team_size: 3
 highlights:
   - "Matched 2,000 resumes to 24,542 job postings using Sentence-BERT cosine similarity"
   - "Built hybrid scoring: Skills (0.5) + Experience (0.3) + Education (0.2)"
