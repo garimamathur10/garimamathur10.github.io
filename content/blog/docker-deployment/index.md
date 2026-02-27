@@ -1,6 +1,6 @@
 ---
 title: "Starting a Career in Data Analytics: Skills, Tools, and Growth Path"
-date: 2026-02-27
+date: 2025-08-27
 summary: "A practical roadmap for beginners to build technical, analytical, and professional skills needed to launch a successful career in data analytics"
 tags:
   - Data Analytics
