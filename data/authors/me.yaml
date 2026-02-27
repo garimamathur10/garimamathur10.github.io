@@ -22,6 +22,9 @@ affiliations:
     url: https://www.accolite.com
 
 links:
+  - icon: at-symbol
+    url: mailto:garimammathur10@gmail.com
+    label: E-mail Me
   - icon: brands/github
     url: https://github.com/garimamathur10
   - icon: brands/linkedin
