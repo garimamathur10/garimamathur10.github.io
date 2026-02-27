@@ -1,5 +1,5 @@
 ---
-title: "WageWizard – AI Salary Prediction System"
+title: "WageWizard – Salary Prediction System"
 date: 2026-02-01
 summary: "ML-powered salary prediction platform that helps graduates set realistic expectations and make data-driven career decisions"
 tags:
