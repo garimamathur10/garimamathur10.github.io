@@ -209,7 +209,7 @@ sections:
       text: |-
         I'm always interested in discussing opportunities in backend platforms,
         distributed systems, and cloud-native engineering.
-      email: your-email@example.com
+      email: mathurgarima2000@gmail.com
       autolink: true
     design:
       columns: '1'
@@ -224,7 +224,7 @@ sections:
     content:
       title: "Open to Opportunities"
       text: |-
-        I'm currently looking for **backend engineering** or **distributed systems** roles.
+        I'm currently looking for **backend software engineering** or **quantitative engineer** roles.
 
         Let's connect and discuss how I can help your team.
       button:
