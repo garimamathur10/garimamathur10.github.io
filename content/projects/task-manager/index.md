@@ -12,6 +12,10 @@ tags:
 authors:
   - me
 featured: true
+status: "Prototype"
+role: "ML Developer"
+duration: "12 weeks"
+team_size: 6
 
 project:
   name: "WageWizard"
