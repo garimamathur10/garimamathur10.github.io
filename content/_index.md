@@ -96,15 +96,15 @@ sections:
             - name: Distributed Systems
               icon: devicon/kubernetes
             - name: System Design
-              icon: devicon/kubernetes
+              icon: devicon/systemdesign
         - name: Tools
           items:
             - name: Linux
               icon: devicon/linux
             - name: Git
               icon: devicon/git
-            - name: Asana
-              icon: devicon/asana
+            - name: Confluence
+              icon: devicon/confluence
             - name: Jira
               icon: devicon/jira
         - name: DevOps
