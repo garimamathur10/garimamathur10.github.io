@@ -2,6 +2,7 @@
 title: "Building SchedWiz: A Big Data-Driven Adaptive Study Scheduling System"
 date: 2025-06-01
 summary: "How I built SchedWiz in my Big Data class using PySpark + ML to turn large-scale learning behavior data into adaptive, real-time study schedules"
+
 tags:
   - Big Data
   - PySpark
@@ -9,8 +10,10 @@ tags:
   - Predictive Analytics
   - Causal Inference
   - Education Tech
+
 authors:
   - me
+
 featured: true
 
 project:
@@ -31,7 +34,7 @@ tech_stack:
 
 links:
   - type: github
-    url: https://github.com/yourrepo/schedwiz
+    url: "https://github.com/yourrepo/schedwiz"
     label: Code
 
 highlights:
@@ -40,14 +43,33 @@ highlights:
   - "Generated personalized, adaptive schedules in real-time via multithreaded orchestration"
   - "Measured 12.6% causal lift in outcomes for high early engagement using PSM + DiD"
 
-content: |-
-  Building intelligent systems is not only about training models — it’s about using data to drive decisions at scale. SchedWiz was built as part of my Big Data coursework, where the goal was to translate large-scale learning behavior data into actionable study schedules.
+architecture:
+  description: "End-to-end adaptive scheduling pipeline powered by predictive modeling and decision optimization"
+  components:
+    - "Student Input Layer (Streamlit UI)"
+    - "Data Processing Layer (PySpark)"
+    - "ML Prediction Layer (MLP Classifier)"
+    - "Decision Engine (Scheduler Agent)"
+    - "Output Layer (Personalized Study Plan)"
+  diagram: |-
+    ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+    │ Streamlit UI│────▶│ ML Pipeline  │────▶│ Study Plan  │
+    └─────────────┘     │  (PySpark)   │     └─────────────┘
+                        └──────┬───────┘
+                               │
+                        ┌──────▼───────┐
+                        │ Scheduler    │
+                        │ Multithreaded│
+                        └──────────────┘
+---
+
+Building intelligent systems is not only about training models — it’s about using data to drive decisions at scale. SchedWiz was built as part of my Big Data coursework, where the goal was to translate large-scale learning behavior data into actionable study schedules.
 
 ## Overview
 
-  Students often struggle with static schedules, inconsistent habits, and difficulty prioritizing tasks. Traditional study planning rarely adapts to changing performance and upcoming exam timelines. SchedWiz addresses this by converting academic performance and engagement signals into dynamic, personalized study plans.
+Students often struggle with static schedules, inconsistent habits, and difficulty prioritizing tasks. Traditional study planning rarely adapts to changing performance and upcoming exam timelines. SchedWiz addresses this by converting academic performance and engagement signals into dynamic, personalized study plans.
 
-  Students enter key details (scores, exam dates, subject difficulty, available hours) through a Streamlit interface. The system predicts academic outcomes and generates an adaptive schedule that prioritizes weak subjects and urgent exams, updating as inputs change.
+Students enter key details (scores, exam dates, subject difficulty, available hours) through a Streamlit interface. The system predicts academic outcomes and generates an adaptive schedule that prioritizes weak subjects and urgent exams, updating as inputs change.
 
 ## Big Data Class Connection
 
@@ -89,107 +111,37 @@ The project was designed around Big Data principles:
 - Propensity Score Matching (PSM) + Difference-in-Differences (DiD)
 - Used to estimate the effect of **early engagement** on outcomes
 
-## System Architecture
+## Challenges & Solutions
 
-architecture:
-  description: "End-to-end adaptive scheduling pipeline powered by predictive modeling and decision optimization"
-  components:
-    - Student Input Layer (Streamlit UI)
-    - Data Processing Layer (PySpark)
-    - ML Prediction Layer (MLP Classifier)
-    - Decision Engine (Scheduler Agent)
-    - Output Layer (Personalized Study Plan)
-  diagram: |
-    ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-    │ Streamlit UI│────▶│ ML Pipeline  │────▶│ Risk Class  │
-    └─────────────┘     │  (PySpark)   │     └─────────────┘
-                        └──────┬───────┘
-                               │
-                        ┌──────▼───────┐
-                        │ Scheduler    │
-                        │ Multithreaded│
-                        └──────┬───────┘
-                               │
-                        ┌──────▼───────┐
-                        │ Study Plan   │
-                        └──────────────┘
+### Challenge 1: Static Study Planning
+**Problem:** Traditional schedules do not adapt to changing performance or deadlines  
+**Solution:** Built ML-driven prioritization and dynamic hour allocation based on predicted risk + exam proximity
 
-links:
-  - type: github
-    url: https://github.com/yourrepo/schedwiz
-    label: Code
+### Challenge 2: Measuring True Impact
+**Problem:** Accuracy alone doesn’t prove schedules improve outcomes  
+**Solution:** Added causal evaluation using PSM + DiD to estimate engagement-driven improvements
 
-highlights:
-  - "Built using OULAD dataset (32k+ students)"
-  - "73.3% outcome prediction accuracy"
-  - "Real-time adaptive scheduling"
-  - "12.6% causal improvement observed"
+### Challenge 3: Responsiveness at Scale
+**Problem:** Scheduling logic must remain fast as data and users scale  
+**Solution:** Implemented concurrency-aware orchestration and cache-aware scheduling logic
 
-content: |-
-  SchedWiz was developed as part of my Big Data coursework to transform large-scale student learning data into personalized study plans.
+## Results
 
-  Students struggle with rigid schedules and poor prioritization. This system uses predictive analytics and behavioral data to dynamically generate optimized study timelines.
+- **Prediction Accuracy:** 73.3% test accuracy (74.98% training accuracy)
+- **Scale:** modeled 32,000+ students (OULAD)
+- **Impact:** 12.6% estimated lift in outcomes for high early engagement
+- **Reliability:** added schema validation and data quality checks to reduce noisy schedule outputs
 
-  ## Big Data Approach
+## Future Improvements
 
-  The system leverages:
+- Improve “Distinction” prediction (address class imbalance)
+- Add real-time schedule reshuffling from continuous signals (engagement + assessments)
+- LMS integration for real-time data ingestion
+- Progress dashboard + personalized recommendations
 
-  - PySpark for scalable preprocessing
-  - Machine learning for academic risk prediction
-  - Scheduling logic for decision-making
-  - Causal inference to measure impact
+## Lessons Learned
 
-  ## Dataset
-
-  Open University Learning Analytics Dataset (OULAD)
-
-  Key features:
-  - Performance metrics
-  - Engagement signals
-  - Behavioral trends
-  - Demographic context
-
-  ## Analytics
-
-  Exploratory → Predictive → Causal
-
-  - MLP for outcome classification
-  - Spark pipelines for scalability
-  - PSM + DiD for engagement impact
-
-  
-  ## Challenges & Solutions
-  
-  ### Challenge 1: Static Study Planning
-  **Problem:** Traditional schedules do not adapt to changing performance or deadlines  
-  **Solution:** Built ML-driven prioritization and dynamic hour allocation based on predicted risk + exam proximity
-  
-  ### Challenge 2: Measuring True Impact
-  **Problem:** Accuracy alone doesn’t prove schedules improve outcomes  
-  **Solution:** Added causal evaluation using PSM + DiD to estimate engagement-driven improvements
-  
-  ### Challenge 3: Responsiveness at Scale
-  **Problem:** Scheduling logic must remain fast as data and users scale  
-  **Solution:** Implemented concurrency-aware orchestration and cache-aware scheduling logic
-
-  ## Results
-
-  - **Prediction Accuracy:** 73.3% test accuracy (74.98% training accuracy)
-  - **Scale:** modeled 32,000+ students (OULAD)
-  - **Impact:** 12.6% estimated lift in outcomes for high early engagement
-  - **Reliability:** added schema validation and data quality checks to reduce noisy schedule outputs
-
-  ## Future Improvement 
-
-  - Improve “Distinction” prediction (address class imbalance)
-  - Add real-time schedule reshuffling from continuous signals (engagement + assessments)
-  - LMS integration for real-time data ingestion
-  - Progress dashboard + personalized recommendations
-
-  ## Lessons Learned
-
-  - Big Data value comes from combining heterogeneous signals into actionable decisions
-  - Causal evaluation increases confidence beyond predictive accuracy
-  - Concurrency and orchestration matter for real-time user-facing planning systems
-  - Reliability (validation, data quality) is essential before scaling to production
----
+- Big Data value comes from combining heterogeneous signals into actionable decisions
+- Causal evaluation increases confidence beyond predictive accuracy
+- Concurrency and orchestration matter for real-time user-facing planning systems
+- Reliability (validation, data quality) is essential before scaling to production
