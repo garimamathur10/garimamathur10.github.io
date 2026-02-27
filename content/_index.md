@@ -95,8 +95,8 @@ sections:
               icon: devicon/docker
             - name: Distributed Systems
               icon: devicon/kubernetes
-            - name: MySQL
-              icon: devicon/mysql
+            - name: System Design
+              icon: devicon/apachekafka
         - name: Tools
           items:
             - name: Linux
