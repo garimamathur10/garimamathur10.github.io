@@ -22,9 +22,6 @@ affiliations:
     url: https://www.accolite.com
 
 links:
-  - icon: at-symbol
-    url: mailto:garimammathur10@gmail.com
-    label: E-mail Me
   - icon: brands/github
     url: https://github.com/garimamathur10
   - icon: brands/linkedin
@@ -35,21 +32,22 @@ interests:
   - Backend Engineering
   - Cloud Platforms
   - System Design
+  - Quantitative Engineer
   - Machine Learning Infrastructure
 
 education:
   - degree: Master of Science in Business Analytics
     institution: University of California, Davis
-    start: 2024-08-01
-    end: 2025-08-01
+    start: 2024-08-06
+    end: 2025-08-15
     summary: |
       Focus on Machine Learning, Data Systems, and Analytics.
       GPA: 3.67/4
 
   - degree: Bachelor of Engineering in Electronics and Computer
     institution: MBM Engineering College, Jodhpur
-    start: 2017-08-01
-    end: 2021-08-01
+    start: 2017-08-15
+    end: 2021-08-17
     summary: |
       Coursework in Operating Systems, Data Structures, and Database Systems.
       GPA: 8.34/10
@@ -57,7 +55,7 @@ education:
 experience:
   - role: Data Augmentation Intern
     org: Bevalty
-    start: 2025-06-01
+    start: 2025-06-23
     end: 2025-08-01
     summary: |
       Designed distributed ingestion pipelines integrating REST APIs and Supabase, improving throughput by 30%.
@@ -67,7 +65,7 @@ experience:
   - role: Senior Software Engineer
     org: Accolite Digital
     start: 2023-11-01
-    end: 2024-07-01
+    end: 2024-07-31
     summary: |
       Implemented secure authorization across 40+ backend modules.
       Improved MariaDB-backed user services supporting 2.5M+ users.
@@ -75,8 +73,8 @@ experience:
 
   - role: Software Engineer
     org: Accolite Digital
-    start: 2021-09-01
-    end: 2023-10-01
+    start: 2021-09-15
+    end: 2023-10-31
     summary: |
       Contributed to Mesa 3D upgrade improving rendering performance on Linux.
       Stabilized data pipelines impacting 3M+ users.
