@@ -22,10 +22,10 @@ tech_stack:
 
 links:
   - type: github
-    url: [https://github.com/garimamathur10/SchedWiz]
+    url: ["https://github.com/garimamathur10/SchedWiz"]
     label: Code
   - type: live
-    url: [https://github.com/garimamathur10/SchedWiz/blob/main/Demo_SchedWiz_BDA_Project.mp4]
+    url: ["https://github.com/garimamathur10/SchedWiz/blob/main/Demo_SchedWiz_BDA_Project.mp4"]
     label: Demo
 featured: true
 status: "Live"
