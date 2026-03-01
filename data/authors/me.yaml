@@ -58,6 +58,7 @@ education:
 experience:
   - role: Data Augmentation Intern
     org: Bevalty
+    location: San Francisco, USA
     start: 2025-06-23
     end: 2025-08-01
     summary: |
@@ -67,6 +68,7 @@ experience:
 
   - role: Senior Software Engineer
     org: Accolite Digital
+    location: Gurugram, India
     start: 2023-11-01
     end: 2024-07-31
     summary: |
@@ -76,6 +78,7 @@ experience:
 
   - role: Software Engineer
     org: Accolite Digital
+    location: Gurugram, India
     start: 2021-09-15
     end: 2023-10-31
     summary: |
